@@ -37,14 +37,14 @@ header {
 }
 .header-inner h1 { display:none; }
 .header-inner, .header-top {
-  display:flex; align-items:center; justify-content:center; gap:12px;
-  margin-bottom:12px; position:relative;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin-bottom:12px; flex-wrap:wrap;
 }
 .header-buy-link {
-  position:absolute; right:16px; top:50%; transform:translateY(-50%);
   color:var(--accent); font-size:.8rem; text-decoration:none;
   padding:6px 12px; border:1px solid var(--accent); border-radius:6px;
   transition:background .2s, color .2s; white-space:nowrap;
+  margin-left:auto;
 }
 .header-buy-link:hover {
   background:var(--accent); color:#1a1a1a;
@@ -1117,3 +1117,177 @@ select:focus, input:focus { outline:none; border-color:var(--accent-dim); }
   font-size:.78rem; color:var(--accent); text-decoration:none; font-weight:600;
 }
 .hero-pvx-link:hover { text-decoration:underline; color:var(--elite); }
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — Tablet & Mobile
+   Ensures no overlapping and clean stacking on smaller screens.
+══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (max 900px) ──────────────────────────────────────── */
+@media (max-width:900px) {
+  header { padding:14px 16px; }
+  .header-top { flex-direction:column; gap:8px; }
+  .header-buy-link {
+    margin-left:0; align-self:center;
+    font-size:.72rem;
+  }
+  .header-prof-bar { flex-wrap:wrap; gap:8px; justify-content:center; }
+  .header-prof-item img { width:30px; height:30px; }
+  .header-prof-item span { font-size:.55rem; }
+
+  main { padding:12px 12px 40px; }
+  .tab-nav { flex-wrap:wrap; gap:4px; }
+  .tab-btn { padding:6px 12px; font-size:.78rem; }
+
+  .profession-bar { flex-direction:column; gap:12px; }
+  .skillbar-row { flex-direction:column; }
+  .skillbar-left { min-width:0; width:100%; }
+  .rotation-panel { flex:1 1 100%; max-width:none; }
+
+  .skill-bar { justify-content:center; }
+  .skill-slot { width:80px; height:80px; }
+  .slot-icon { width:32px; height:32px; }
+  .slot-name { font-size:.62rem; }
+
+  .row-actions { flex-wrap:wrap; gap:6px; }
+
+  .equip-row { flex-direction:column; gap:10px; }
+  .equip-col { min-width:0; width:100%; }
+
+  .calc-grid { grid-template-columns:1fr 1fr; }
+  .calc-popup-inline { position:static; width:100%; margin-top:12px; }
+
+  .armor-grid { grid-template-columns:1fr 1fr; }
+  .armor-tier-buttons { flex-wrap:wrap; }
+  .tier-btn { min-width:90px; flex:1; }
+
+  .attr-ranks-grid { grid-template-columns:1fr; }
+
+  .skill-grid { grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); }
+  .elite-grid { grid-template-columns:1fr; }
+  .craft-grid { grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); }
+
+  .summary-stats-row { gap:8px; }
+  .summary-stat-block { min-width:70px; padding:8px 10px; }
+  .summary-stat-value { font-size:1.1rem; }
+
+  .weekly-row { grid-template-columns:36px 140px 1fr; font-size:.72rem; }
+
+  .title-list-header { display:none; }
+  .title-badges { width:auto; }
+  .title-farm-summary { flex-wrap:wrap; gap:6px; }
+  .title-gwamm-col { width:auto; }
+}
+
+/* ── Mobile (max 600px) ──────────────────────────────────────── */
+@media (max-width:600px) {
+  header { padding:10px 10px; }
+  .header-logo { width:40px; height:40px; }
+  .reforged-title { font-size:1.1rem; letter-spacing:2px; }
+  .planner-title { font-size:.7rem; letter-spacing:2px; }
+  .header-titles .subtitle { font-size:.6rem; display:none; }
+  .header-prof-bar { gap:4px; padding:0 4px; }
+  .header-prof-item img { width:24px; height:24px; }
+  .header-prof-item span { display:none; }
+  .header-buy-link { font-size:.65rem; padding:4px 8px; }
+
+  main { padding:8px 8px 30px; gap:10px; }
+  .card { padding:12px 12px; }
+  .card h2 { font-size:.82rem; margin-bottom:10px; }
+
+  .tab-nav { gap:3px; }
+  .tab-btn { padding:5px 8px; font-size:.7rem; border-radius:4px 4px 0 0; }
+
+  .prof-buttons { gap:3px; }
+  .prof-btn { padding:4px 8px; font-size:.72rem; }
+
+  .skill-bar { gap:6px; justify-content:center; }
+  .skill-slot { width:60px; height:60px; }
+  .slot-icon { width:26px; height:26px; }
+  .slot-name { font-size:.55rem; }
+  .slot-type { font-size:.5rem; }
+  .slot-num { font-size:.55rem; }
+
+  .row-actions { flex-direction:column; align-items:stretch; gap:6px; }
+  .row-actions .btn-primary,
+  .row-actions .btn-secondary { width:100%; text-align:center; }
+
+  .browser-controls { flex-direction:column; gap:6px; align-items:stretch; }
+  .browser-controls input { min-width:0; width:100%; }
+  .browser-controls select { width:100%; }
+
+  .skill-grid { grid-template-columns:1fr; max-height:400px; }
+  .skill-card { padding:8px 10px; }
+
+  .attr-ranks-grid { grid-template-columns:1fr; }
+  .attr-rank-summary { padding:6px 8px; gap:5px; }
+  .attr-rank-name { font-size:.72rem; min-width:80px; }
+  .attr-rank-slider { min-width:80px; }
+
+  .equip-row { flex-direction:column; gap:8px; }
+  .equip-col { min-width:0; }
+  .armor-grid { grid-template-columns:1fr; }
+  .armor-tier-buttons { gap:5px; }
+  .tier-btn { min-width:70px; padding:6px 8px; }
+  .tier-ar { font-size:.9rem; }
+  .tier-name { font-size:.6rem; }
+  .tier-detail-grid { grid-template-columns:1fr; }
+
+  .calc-grid { grid-template-columns:1fr; }
+  .calc-cards { flex-direction:column; }
+  .calc-card { min-width:0; }
+  .comp-table { font-size:.7rem; }
+  .comp-table th, .comp-table td { padding:4px 6px; }
+
+  .summary-stats-row { flex-direction:row; flex-wrap:wrap; gap:6px; }
+  .summary-stat-block { min-width:0; flex:1 1 calc(33% - 6px); padding:6px 8px; }
+  .summary-stat-value { font-size:1rem; }
+  .summary-stat-label { font-size:.58rem; }
+
+  .craft-grid { grid-template-columns:1fr; }
+  .craft-mat-icon { width:36px; height:36px; }
+
+  .elite-grid { grid-template-columns:1fr; }
+  .elite-controls { flex-direction:column; align-items:stretch; }
+  .elite-controls input { min-width:0; }
+
+  .event-header { gap:8px; }
+  .event-icon { font-size:1.4rem; }
+  .event-name { font-size:.9rem; }
+
+  .weekly-row { grid-template-columns:32px 1fr; gap:4px; }
+  .weekly-effect { grid-column:1/-1; padding-left:36px; }
+
+  .title-farm-summary { padding:8px 10px; }
+  .title-farm-name { font-size:.78rem; }
+  .title-badges { flex-wrap:wrap; width:auto; }
+  .title-tier-row { grid-template-columns:24px 1fr; gap:4px; }
+  .tier-rank-pts, .tier-rank-bonus { grid-column:2; }
+
+  .hero-summary { padding:8px 10px; }
+  .hero-name { font-size:.8rem; }
+  .hero-body { padding:6px 10px 10px; }
+  .hero-row { font-size:.75rem; }
+
+  .tooltip { max-width:260px; font-size:.75rem; }
+
+  .rotation-panel { padding:10px 12px; max-height:400px; }
+  .rot-skill-name { min-width:90px; font-size:.72rem; }
+
+  .import-inline { flex-direction:column; }
+  .import-inline input { min-width:0; width:100%; }
+}
+
+/* ── Very small screens (max 380px) ──────────────────────────── */
+@media (max-width:380px) {
+  .skill-bar { gap:4px; }
+  .skill-slot { width:50px; height:50px; }
+  .slot-icon { width:22px; height:22px; }
+  .slot-name { display:none; }
+
+  .tab-btn { padding:4px 6px; font-size:.62rem; }
+  .summary-stat-block { flex:1 1 calc(50% - 6px); }
+
+  .header-prof-bar { gap:2px; }
+  .header-prof-item img { width:20px; height:20px; }
+}
